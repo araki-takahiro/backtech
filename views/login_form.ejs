@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン</title>
+</head>
+<body>
+    <h1>ログイン画面</h1>
+    <% if(error){ %>
+    <p><%= error %></p>
+    <% } %>
+    <form method="post" action="/users/login">
+        <input type="text" name="email" placeholder="email"></br>
+        <input type="text" name="password" placeholder="password"></br>
+        <input type="submit" value="ログイン">
+    </form>
+    <a href="users/new">
+        <p>登録がまだの方はこちら</p>
+    </a>
+</body>
+</html>

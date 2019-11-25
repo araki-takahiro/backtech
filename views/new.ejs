@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <h1>newです</h1>
+    <% if(errors){ %>
+    <% errors.errors.forEach(function(err){ %>
+    <p><%= err.msg %></p>
+    <% }) %>
+    <% } %>
+    <form method="post" action="/users/create">
+        <input type="text" name="name" placeholder="name"></br>
+        <input type="text" name="email" placeholder="email"></br>
+        <input type="text" name="password" placeholder="password"></br>
+        <input type='hidden' name='session_id' value=<%= sessionID %>>
+        <input type="submit" value="登録">
+    </form>
+</body>
+</html>

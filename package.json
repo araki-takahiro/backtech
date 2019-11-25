@@ -1,0 +1,25 @@
+{
+  "name": "backtech",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@types/ejs": "^2.6.3",
+    "@types/mongoose": "^5.5.32",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.7.4",
+    "express": "^4.16.4",
+    "express-validator": "^6.2.0",
+    "hjs": "~0.0.6",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.7.12",
+    "morgan": "~1.9.1",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.0.1",
+    "sequelize": "^6.0.0"
+  }
+}
