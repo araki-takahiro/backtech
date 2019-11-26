@@ -10,6 +10,7 @@ const {
 } = require("express-validator");
 var userValidator = require("../validators/user_validator");
 var sessionID = null;
+var referer = null;
 /* GET users listing. */
 // router.get("/", function(req, res, next) {
 //   res.send("respond with a resource");
@@ -76,16 +77,25 @@ router.post("/login", function (req, res, next) {
       email: req.body.email,
       password: req.body.password
     }
-  }).then(function (
-    user
-  ) {
-    if (user && req.headers.referer.indexOf('login_form') > -1) {
+  }).then(function (user) {
+    if (user && req.headers.referer.indexOf('login') == -1) {
       req.session.user = user;
-      res.redirect(302, "/users/" + user.id);
+      if (referer) {
+        res.redirect(302, referer);
+      } else {
+        res.redirect(302, req.headers.referer);
+      }
     } else if (user) {
       req.session.user = user;
-      res.redirect(302, req.headers.referer);
+      if (referer) {
+        res.redirect(302, referer);
+      } else {
+        res.redirect(302, "/users/" + user.id);
+      }
     } else {
+      if (req.headers.referer.indexOf('login') == -1) {
+        referer = req.headers.referer;
+      }
       res.render("login_form", {
         error: "emailかpasswordが正しくありません"
       });

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>test</title>
-</head>
+<head></head>
 <body>
     <h1>newです</h1>
     <% if(errors){ %>
@@ -18,5 +14,11 @@
         <input type='hidden' name='session_id' value=<%= sessionID %>>
         <input type="submit" value="登録">
     </form>
+    <a href="/users/login_form">
+        <p>ログイン</p>
+    </a>
+    <a href="/">
+        <p>ホームへ戻る</p>
+    </a>
 </body>
 </html>

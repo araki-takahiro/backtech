@@ -28,7 +28,6 @@ module.exports = async function sendNewPassword(req, res, newPassword) {
                 })
             }
             // 送信成功
-            console.log(message.text)
             res.redirect(302, "/send_complete");
         });
     } catch (e) {
